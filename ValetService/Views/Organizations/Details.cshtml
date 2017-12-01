@@ -39,7 +39,9 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Organization.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("View Employees", "Index", "Employees", new { organizationId = Model.Organization.Id}, null) |
+    @Html.ActionLink("Add Employee", "Create", "Employees", new { organizationId = Model.Organization.Id }, null)
 </p>
 
 <h3>Zones</h3>
@@ -52,12 +54,33 @@
             @Html.EditorFor(model => model.Zone.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Zone.Name, "", new { @class = "text-danger" })
             @Html.Hidden("organizationId", Model.Organization.Id)
-            <input type="submit" value="AddZone" class="btn btn-default" />
+            <input type="submit" value="Add Zone" class="btn btn-default" />
         </div>
     </div>
+}
 
-    foreach (var item in Model.Organization.Zones)
+    @foreach (var item in Model.Organization.Zones)
     {
-        <p>@item.Name</p>
+      <p>@item.Name</p>
     }
+
+<h3>Tags</h3>
+@using (Html.BeginForm("AddTag", "Organizations"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tag.TagNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tag.TagNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tag.TagNumber, "", new { @class = "text-danger" })
+            @Html.Hidden("organizationId", Model.Organization.Id)
+            <input type="submit" value="Add Tag" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@foreach (var item in Model.Organization.Tags)
+{
+    <p>@item.TagNumber</p>
 }

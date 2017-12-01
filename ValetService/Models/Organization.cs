@@ -42,7 +42,7 @@ namespace ValetService.Models
     public class Tag : EntityData
     {
         [Required, Display(Name = "Tag Number")]
-        public int TagNumber { get; set; }
+        public string TagNumber { get; set; }
 
         [ScaffoldColumn(false)]
         public Organization Organization { get; set; }

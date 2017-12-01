@@ -34,7 +34,7 @@ namespace ValetService.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
+        [Required, Display(Name ="Role")]
         public UserLevel UserLevel { get; set; }
 
         [Required, ScaffoldColumn(false)]

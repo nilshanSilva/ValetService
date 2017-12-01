@@ -141,10 +141,38 @@ namespace ValetService.Controllers
                     zone.Id = Guid.NewGuid().ToString();
                     zone.Organization = organization;
                     db.Zones.Add(zone);
-                    db.SaveChanges();
+                    var zn = db.Zones.Where(o => o.Organization.Id == organization.Id)
+                        .Where(z => z.Name == zone.Name).SingleOrDefault();
+                    if (zn == null)
+                    {
+                        db.SaveChanges();
+                    }
                 }
             }
             return RedirectToAction("Details", new { id = organizationId });
+        }
+
+        [HttpPost, ActionName("AddTag")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTag(Tag tag, string organizationId)
+        {
+            if(ModelState.IsValid)
+            {
+                if(organizationId != null)
+                {
+                    var organization = db.Organizations.Find(organizationId);
+                    tag.Id = Guid.NewGuid().ToString();
+                    tag.Organization = organization;
+                    db.Tags.Add(tag);
+                    var tg = db.Tags.Where(o => o.Organization.Id == organization.Id)
+                        .Where(t => t.TagNumber == tag.TagNumber).SingleOrDefault();
+                    if (tg == null)
+                    {
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("Details", new { id = organizationId});
         }
 
         protected override void Dispose(bool disposing)
