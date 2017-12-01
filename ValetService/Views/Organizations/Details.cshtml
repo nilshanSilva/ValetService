@@ -1,0 +1,63 @@
+﻿@model ValetService.ViewModels.OrganizationDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Organization.Name</h2>
+
+<div>
+    <h4>@Model.Organization.Type</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Organization.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organization.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organization.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organization.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organization.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organization.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Organization.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<h3>Zones</h3>
+@using (Html.BeginForm("AddZone", "Organizations"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.Zone.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Zone.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Zone.Name, "", new { @class = "text-danger" })
+            @Html.Hidden("organizationId", Model.Organization.Id)
+            <input type="submit" value="AddZone" class="btn btn-default" />
+        </div>
+    </div>
+
+    foreach (var item in Model.Organization.Zones)
+    {
+        <p>@item.Name</p>
+    }
+}
