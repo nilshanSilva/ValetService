@@ -41,8 +41,20 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Organization.Id }) |
     @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("View Employees", "Index", "Employees", new { organizationId = Model.Organization.Id}, null) |
-    @Html.ActionLink("Add Employee", "Create", "Employees", new { organizationId = Model.Organization.Id }, null)
-</p>
+    @Html.ActionLink("Add Employee", "Create", "Employees", new { organizationId = Model.Organization.Id }, null) |
+    </p>
+    @if(Model.FeeRate == null)
+    {
+        <p>
+    @Html.ActionLink("Add Rate Policy", "Create", "FeeRates", new { organizationId = Model.Organization.Id }, null)
+       </p>
+    }
+    else
+    {
+        <p>
+        @Html.ActionLink("Edit Rate Policy", "Edit", "FeeRates", new { id = Model.FeeRate.Id, organizationId = Model.Organization.Id }, null)
+        </p>
+    }
 
 <h3>Zones</h3>
 @using (Html.BeginForm("AddZone", "Organizations"))

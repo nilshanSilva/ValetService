@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FeeRatesController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\Ticket.cs" />
@@ -209,6 +210,10 @@
     <Compile Include="Migrations\201712010808267_tagnumberString.cs" />
     <Compile Include="Migrations\201712010808267_tagnumberString.Designer.cs">
       <DependentUpon>201712010808267_tagnumberString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011533515_registrationNumber.cs" />
+    <Compile Include="Migrations\201712011533515_registrationNumber.Designer.cs">
+      <DependentUpon>201712011533515_registrationNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -252,6 +257,11 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\FeeRates\Create.cshtml" />
+    <Content Include="Views\FeeRates\Delete.cshtml" />
+    <Content Include="Views\FeeRates\Details.cshtml" />
+    <Content Include="Views\FeeRates\Edit.cshtml" />
+    <Content Include="Views\FeeRates\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -273,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712010808267_tagnumberString.resx">
       <DependentUpon>201712010808267_tagnumberString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011533515_registrationNumber.resx">
+      <DependentUpon>201712011533515_registrationNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

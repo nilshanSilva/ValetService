@@ -30,11 +30,13 @@ namespace ValetService.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Organization organization = db.Organizations.Include(t => t.Tags)
-                 .Include(z => z.Zones).Include(e => e.Employees).SingleOrDefault(d => d.Id == id);
+                 .Include(z => z.Zones).Include(e => e.Employees)
+                 .Include(f => f.FeeRate).FirstOrDefault(d => d.Id == id);
 
             OrganizationDetailsViewModel organizationVM = new OrganizationDetailsViewModel
             {
-                Organization = organization
+                Organization = organization,
+                FeeRate = organization.FeeRate
             };
 
             if (organization == null)
@@ -142,7 +144,7 @@ namespace ValetService.Controllers
                     zone.Organization = organization;
                     db.Zones.Add(zone);
                     var zn = db.Zones.Where(o => o.Organization.Id == organization.Id)
-                        .Where(z => z.Name == zone.Name).SingleOrDefault();
+                        .Where(z => z.Name == zone.Name).FirstOrDefault();
                     if (zn == null)
                     {
                         db.SaveChanges();
@@ -165,7 +167,7 @@ namespace ValetService.Controllers
                     tag.Organization = organization;
                     db.Tags.Add(tag);
                     var tg = db.Tags.Where(o => o.Organization.Id == organization.Id)
-                        .Where(t => t.TagNumber == tag.TagNumber).SingleOrDefault();
+                        .Where(t => t.TagNumber == tag.TagNumber).FirstOrDefault();
                     if (tg == null)
                     {
                         db.SaveChanges();

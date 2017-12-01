@@ -11,5 +11,6 @@ namespace ValetService.ViewModels
         public Organization Organization { get; set; }
         public Zone Zone { get; set; }
         public Tag Tag { get; set; }
+        public FeeRate FeeRate { get; set; }
     }
 }

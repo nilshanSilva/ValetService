@@ -17,6 +17,9 @@ namespace ValetService.Models
         [Required, EmailAddress]
         public string Email { get; set; }
 
+        [Required, Display(Name = "Registration Number")]
+        public string RegistrationNumber { get; set; }
+
         [ScaffoldColumn(false)]
         public ICollection<Employee> Employees { get; set; }
 
@@ -50,14 +53,14 @@ namespace ValetService.Models
 
     public class FeeRate : EntityData
     {
-        [Required, Display(Name = "Initial Period (Days)")]
+        [Required, Display(Name = "Initial Period (Hours)")]
         public int InitialPeriod { get; set; }
 
-        [Required, Display(Name = "Initial Rate (USD/Day)")]
+        [Required, Display(Name = "Initial Rate (USD/Hour)")]
         [DataType(DataType.Currency), Range(0, 100)]
         public decimal IntitalRate { get; set; }
 
-        [Required, Display(Name = "Initial Rate (USD/Day)")]
+        [Required, Display(Name = "Normal Rate (USD/Hour)")]
         [DataType(DataType.Currency), Range(0, 100)]
         public decimal NormalRate { get; set; }
 
