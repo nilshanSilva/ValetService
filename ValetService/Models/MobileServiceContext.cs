@@ -26,7 +26,13 @@ namespace ValetService.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Zone> Zones { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<FeeRate> FeeRates { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
