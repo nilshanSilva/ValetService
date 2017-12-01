@@ -7,13 +7,13 @@ namespace ValetService.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class registrationNumber : IMigrationMetadata
+    public sealed partial class PortalComplete : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(registrationNumber));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PortalComplete));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712011533515_registrationNumber"; }
+            get { return "201712011536161_PortalComplete"; }
         }
         
         string IMigrationMetadata.Source

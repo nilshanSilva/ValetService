@@ -203,17 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712010540030_initial.cs" />
-    <Compile Include="Migrations\201712010540030_initial.Designer.cs">
-      <DependentUpon>201712010540030_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010808267_tagnumberString.cs" />
-    <Compile Include="Migrations\201712010808267_tagnumberString.Designer.cs">
-      <DependentUpon>201712010808267_tagnumberString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011533515_registrationNumber.cs" />
-    <Compile Include="Migrations\201712011533515_registrationNumber.Designer.cs">
-      <DependentUpon>201712011533515_registrationNumber.cs</DependentUpon>
+    <Compile Include="Migrations\201712011536161_PortalComplete.cs" />
+    <Compile Include="Migrations\201712011536161_PortalComplete.Designer.cs">
+      <DependentUpon>201712011536161_PortalComplete.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -278,14 +270,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712010540030_initial.resx">
-      <DependentUpon>201712010540030_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010808267_tagnumberString.resx">
-      <DependentUpon>201712010808267_tagnumberString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011533515_registrationNumber.resx">
-      <DependentUpon>201712011533515_registrationNumber.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712011536161_PortalComplete.resx">
+      <DependentUpon>201712011536161_PortalComplete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

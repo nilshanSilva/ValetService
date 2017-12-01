@@ -58,7 +58,7 @@ namespace ValetService.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Type,Email,Version,CreatedAt,UpdatedAt,Deleted")] Organization organization)
+        public ActionResult Create([Bind(Include = "Id,Name,Type,Email,RegistrationNumber,Version,CreatedAt,UpdatedAt,Deleted")] Organization organization)
         {
             if (ModelState.IsValid)
             {

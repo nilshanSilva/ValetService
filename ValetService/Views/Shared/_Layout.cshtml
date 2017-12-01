@@ -27,6 +27,7 @@
 
     <div class="container body-content">
         @RenderBody()
+        <div class="push"></div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Valet Service Inc</p>
@@ -38,3 +39,9 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<style>
+    .push {
+        height: 100px; /* .push must be the same height as .footer */
+    }
+</style>

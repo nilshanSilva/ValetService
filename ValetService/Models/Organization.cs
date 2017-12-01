@@ -68,5 +68,5 @@ namespace ValetService.Models
         public Organization Organization { get; set; }
     }
 
-    public enum OrganizationType { Hotel = 1, Hospital, Airport, Other }
+    public enum OrganizationType { Hotel = 1, Hospital, Airport, Residency, Other }
 }

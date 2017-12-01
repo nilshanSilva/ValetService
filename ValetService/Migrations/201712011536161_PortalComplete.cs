@@ -5,7 +5,7 @@ namespace ValetService.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class PortalComplete : DbMigration
     {
         public override void Up()
         {
@@ -83,6 +83,7 @@ namespace ValetService.Migrations
                         Name = c.String(nullable: false),
                         Type = c.Int(nullable: false),
                         Email = c.String(nullable: false),
+                        RegistrationNumber = c.String(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
@@ -184,7 +185,7 @@ namespace ValetService.Migrations
                                     new AnnotationValues(oldValue: null, newValue: "Id")
                                 },
                             }),
-                        TagNumber = c.Int(nullable: false),
+                        TagNumber = c.String(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
