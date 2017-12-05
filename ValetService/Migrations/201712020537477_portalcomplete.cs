@@ -5,7 +5,7 @@ namespace ValetService.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class PortalComplete : DbMigration
+    public partial class portalcomplete : DbMigration
     {
         public override void Up()
         {
@@ -326,12 +326,12 @@ namespace ValetService.Migrations
                             }),
                         Tag_Id = c.String(maxLength: 128),
                         TicketCloser_Id = c.String(maxLength: 128),
-                        TicketRaiser_Id = c.String(maxLength: 128),
+                        TicketRaiser_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Tags", t => t.Tag_Id)
                 .ForeignKey("dbo.Employees", t => t.TicketCloser_Id)
-                .ForeignKey("dbo.Employees", t => t.TicketRaiser_Id)
+                .ForeignKey("dbo.Employees", t => t.TicketRaiser_Id, cascadeDelete: true)
                 .Index(t => t.CreatedAt, clustered: true)
                 .Index(t => t.Tag_Id)
                 .Index(t => t.TicketCloser_Id)

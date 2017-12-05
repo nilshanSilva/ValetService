@@ -154,6 +154,7 @@
     <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
@@ -197,15 +198,22 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\FeeRatesController.cs" />
+    <Compile Include="api\LoginController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DataObjects\EmployeeDto.cs" />
     <Compile Include="DataObjects\Ticket.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712011536161_PortalComplete.cs" />
-    <Compile Include="Migrations\201712011536161_PortalComplete.Designer.cs">
-      <DependentUpon>201712011536161_PortalComplete.cs</DependentUpon>
+    <Compile Include="Migrations\201712020537477_portalcomplete.cs" />
+    <Compile Include="Migrations\201712020537477_portalcomplete.Designer.cs">
+      <DependentUpon>201712020537477_portalcomplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712040438147_changeEmployee.cs" />
+    <Compile Include="Migrations\201712040438147_changeEmployee.Designer.cs">
+      <DependentUpon>201712040438147_changeEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -270,8 +278,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712011536161_PortalComplete.resx">
-      <DependentUpon>201712011536161_PortalComplete.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712020537477_portalcomplete.resx">
+      <DependentUpon>201712020537477_portalcomplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712040438147_changeEmployee.resx">
+      <DependentUpon>201712040438147_changeEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

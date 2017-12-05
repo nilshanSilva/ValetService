@@ -39,6 +39,10 @@ namespace ValetService.Models
 
         [Required, ScaffoldColumn(false)]
         public Organization Organization { get; set; }
+
+        public bool IsLoggedIn { get; set; }
+
+        public string OrganizationId { get; set; }
     }
 
     public enum Gender { Male = 1, Female }

@@ -44,7 +44,7 @@ namespace ValetService
         }
     }
 
-    public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext>
+    public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext> /*ClearDatabaseSchemaIfModelChanges<MobileServiceContext>*/ /*CreateDatabaseIfNotExists<MobileServiceContext>*/
     {
         protected override void Seed(MobileServiceContext context)
         {
