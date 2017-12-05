@@ -207,13 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712020537477_portalcomplete.cs" />
-    <Compile Include="Migrations\201712020537477_portalcomplete.Designer.cs">
-      <DependentUpon>201712020537477_portalcomplete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712040438147_changeEmployee.cs" />
-    <Compile Include="Migrations\201712040438147_changeEmployee.Designer.cs">
-      <DependentUpon>201712040438147_changeEmployee.cs</DependentUpon>
+    <Compile Include="Migrations\201712051346346_azure.cs" />
+    <Compile Include="Migrations\201712051346346_azure.Designer.cs">
+      <DependentUpon>201712051346346_azure.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -278,11 +274,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712020537477_portalcomplete.resx">
-      <DependentUpon>201712020537477_portalcomplete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712040438147_changeEmployee.resx">
-      <DependentUpon>201712040438147_changeEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712051346346_azure.resx">
+      <DependentUpon>201712051346346_azure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,7 +5,7 @@ namespace ValetService.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class portalcomplete : DbMigration
+    public partial class azure : DbMigration
     {
         public override void Up()
         {
@@ -29,6 +29,8 @@ namespace ValetService.Migrations
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false, maxLength: 100),
                         UserLevel = c.Int(nullable: false),
+                        IsLoggedIn = c.Boolean(nullable: false),
+                        OrganizationId = c.String(nullable: false, maxLength: 128),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
@@ -61,12 +63,11 @@ namespace ValetService.Migrations
                                     new AnnotationValues(oldValue: null, newValue: "Deleted")
                                 },
                             }),
-                        Organization_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Organizations", t => t.Organization_Id, cascadeDelete: true)
-                .Index(t => t.CreatedAt, clustered: true)
-                .Index(t => t.Organization_Id);
+                .ForeignKey("dbo.Organizations", t => t.OrganizationId, cascadeDelete: true)
+                .Index(t => t.OrganizationId)
+                .Index(t => t.CreatedAt, clustered: true);
             
             CreateTable(
                 "dbo.Organizations",
@@ -402,7 +403,7 @@ namespace ValetService.Migrations
             DropForeignKey("dbo.Tickets", "TicketRaiser_Id", "dbo.Employees");
             DropForeignKey("dbo.Tickets", "TicketCloser_Id", "dbo.Employees");
             DropForeignKey("dbo.Tickets", "Tag_Id", "dbo.Tags");
-            DropForeignKey("dbo.Employees", "Organization_Id", "dbo.Organizations");
+            DropForeignKey("dbo.Employees", "OrganizationId", "dbo.Organizations");
             DropForeignKey("dbo.Zones", "Organization_Id", "dbo.Organizations");
             DropForeignKey("dbo.Tags", "Organization_Id", "dbo.Organizations");
             DropForeignKey("dbo.FeeRates", "Id", "dbo.Organizations");
@@ -420,8 +421,8 @@ namespace ValetService.Migrations
             DropIndex("dbo.FeeRates", new[] { "CreatedAt" });
             DropIndex("dbo.FeeRates", new[] { "Id" });
             DropIndex("dbo.Organizations", new[] { "CreatedAt" });
-            DropIndex("dbo.Employees", new[] { "Organization_Id" });
             DropIndex("dbo.Employees", new[] { "CreatedAt" });
+            DropIndex("dbo.Employees", new[] { "OrganizationId" });
             DropTable("dbo.Vehicles",
                 removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
                 {
