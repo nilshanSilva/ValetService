@@ -34,7 +34,7 @@ namespace ValetService.Controllers
                 .FirstOrDefault();
 
             if (employee == null)
-                return BadRequest();
+                return NotFound();
 
             EmployeeDto dto = new EmployeeDto
             {
