@@ -200,6 +200,7 @@
     <Compile Include="Controllers\FeeRatesController.cs" />
     <Compile Include="api\LoginController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\EmployeeDto.cs" />
     <Compile Include="DataObjects\Ticket.cs" />
