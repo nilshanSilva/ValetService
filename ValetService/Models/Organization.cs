@@ -40,6 +40,8 @@ namespace ValetService.Models
 
         [ScaffoldColumn(false)]
         public Organization Organization { get; set; }
+
+        public string OrganizationId { get; set; }
     }
 
     public class Tag : EntityData
@@ -49,6 +51,8 @@ namespace ValetService.Models
 
         [ScaffoldColumn(false)]
         public Organization Organization { get; set; }
+
+        public string OrganizationId { get; set; }
     }
 
     public class FeeRate : EntityData
@@ -66,6 +70,8 @@ namespace ValetService.Models
 
         [ScaffoldColumn(false), Required]
         public Organization Organization { get; set; }
+
+        public string OrganizationId { get; set; }
     }
 
     public enum OrganizationType { Hotel = 1, Hospital, Airport, Residency, Other }

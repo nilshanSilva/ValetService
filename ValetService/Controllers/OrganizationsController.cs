@@ -142,6 +142,7 @@ namespace ValetService.Controllers
                     var organization = db.Organizations.Find(organizationId);
                     zone.Id = Guid.NewGuid().ToString();
                     zone.Organization = organization;
+                    zone.OrganizationId = organizationId;
                     db.Zones.Add(zone);
                     var zn = db.Zones.Where(o => o.Organization.Id == organization.Id)
                         .Where(z => z.Name == zone.Name).FirstOrDefault();
@@ -165,6 +166,7 @@ namespace ValetService.Controllers
                     var organization = db.Organizations.Find(organizationId);
                     tag.Id = Guid.NewGuid().ToString();
                     tag.Organization = organization;
+                    tag.OrganizationId = organizationId;
                     db.Tags.Add(tag);
                     var tg = db.Tags.Where(o => o.Organization.Id == organization.Id)
                         .Where(t => t.TagNumber == tag.TagNumber).FirstOrDefault();

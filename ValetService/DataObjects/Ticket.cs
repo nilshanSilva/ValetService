@@ -19,6 +19,7 @@ namespace ValetService.DataObjects
         public Tag Tag { get; set; }
         public Vehicle Vehicle { get; set; }
         public decimal Fee { get; set; }
+        public string OrganizationId { get; set; }
     }
 
     public class Vehicle : EntityData
@@ -32,6 +33,8 @@ namespace ValetService.DataObjects
 
         [Required]
         public Ticket Ticket { get; set; }
+
+        public string OrganizationId { get; set; }
     }
 
     public enum TicketStatus { Opened = 1, Closed, Cancelled }

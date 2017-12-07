@@ -60,6 +60,7 @@ namespace ValetService.Controllers
                     var organization = db.Organizations.Find(organizationId);
                     feeRate.Id = Guid.NewGuid().ToString();
                     feeRate.Organization = organization;
+                    feeRate.OrganizationId = organizationId;
                     var rate = db.FeeRates.Where(f => f.Organization.Id == organization.Id).FirstOrDefault();
                     if(rate == null)
                     {
