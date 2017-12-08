@@ -12,8 +12,8 @@ namespace ValetService.DataObjects
     public class Ticket : EntityData
     {
         [Required]
-        public Employee TicketRaiser { get; set; }
-        public Employee TicketCloser { get; set; }
+        public string TicketRaiserId { get; set; }
+        public string  TicketCloserId { get; set; }
         public TicketStatus Status { get; set; }
         public DateTime ClosedAt { get; set; }
         public Tag Tag { get; set; }
