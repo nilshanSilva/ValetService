@@ -16,8 +16,8 @@ namespace ValetService.DataObjects
         public string  TicketCloserId { get; set; }
         public TicketStatus Status { get; set; }
         public DateTime ClosedAt { get; set; }
-        public Tag Tag { get; set; }
-        public Vehicle Vehicle { get; set; }
+        public string  TagId { get; set; }
+        public string  VehicleId { get; set; }
         public decimal Fee { get; set; }
         public string OrganizationId { get; set; }
     }
@@ -29,10 +29,10 @@ namespace ValetService.DataObjects
         [Required]
         public VehicleStatus Status { get; set; }
         public string ImageLocation { get; set; }
-        public Zone Zone { get; set; }
+        public string ZoneId { get; set; }
 
         [Required]
-        public Ticket Ticket { get; set; }
+        public string TicketId { get; set; }
 
         public string OrganizationId { get; set; }
     }

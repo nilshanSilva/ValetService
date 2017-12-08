@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201712081232446_ticketEmployeeId.Designer.cs">
       <DependentUpon>201712081232446_ticketEmployeeId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712081725507_tickettag.cs" />
+    <Compile Include="Migrations\201712081725507_tickettag.Designer.cs">
+      <DependentUpon>201712081725507_tickettag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -291,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712081232446_ticketEmployeeId.resx">
       <DependentUpon>201712081232446_ticketEmployeeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081725507_tickettag.resx">
+      <DependentUpon>201712081725507_tickettag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
