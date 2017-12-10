@@ -203,6 +203,7 @@
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="DataObjects\EmployeeDto.cs" />
     <Compile Include="DataObjects\Ticket.cs" />
     <Compile Include="Global.asax.cs">
