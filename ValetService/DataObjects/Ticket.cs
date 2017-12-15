@@ -16,6 +16,7 @@ namespace ValetService.DataObjects
         public string  TicketCloserId { get; set; }
         public TicketStatus Status { get; set; }
         public DateTimeOffset ClosedAt { get; set; }
+        public DateTimeOffset OpenedAt { get; set; }
         public string  TagId { get; set; }
         public string  VehicleId { get; set; }
         public decimal Fee { get; set; }
