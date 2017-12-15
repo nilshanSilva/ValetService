@@ -4,6 +4,7 @@ using ValetService.Models;
 using System.Linq;
 using System.Data.Entity;
 using ValetService.DataObjects;
+using System;
 
 namespace ValetService.Controllers
 {
@@ -28,10 +29,11 @@ namespace ValetService.Controllers
         {
             if (email == null || password == null)
                 return BadRequest();
-
-           var employee = db.Employees.Include(o => o.Organization)
-                .Where(e => e.Email == email).Where(p => p.Password == password)
-                .FirstOrDefault();
+            try
+            {
+                var employee = db.Employees.Include(o => o.Organization)
+                     .Where(e => e.Email == email).Where(p => p.Password == password)
+                     .FirstOrDefault();
 
             if (employee == null)
                 return NotFound();
@@ -50,7 +52,12 @@ namespace ValetService.Controllers
                 Organization = new Organization { Id = employee.Organization.Id, Name = employee.Organization.Name},
                 Version = employee.Version
             };
-            return Ok(dto);
+                return Ok(dto);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
     }
 }
