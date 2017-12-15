@@ -232,6 +232,10 @@
     <Compile Include="Migrations\201712081957396_datetimeoffset.Designer.cs">
       <DependentUpon>201712081957396_datetimeoffset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712151851201_TicketOpenedAt.cs" />
+    <Compile Include="Migrations\201712151851201_TicketOpenedAt.Designer.cs">
+      <DependentUpon>201712151851201_TicketOpenedAt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -309,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712081957396_datetimeoffset.resx">
       <DependentUpon>201712081957396_datetimeoffset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712151851201_TicketOpenedAt.resx">
+      <DependentUpon>201712151851201_TicketOpenedAt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
