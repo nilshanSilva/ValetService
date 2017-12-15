@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FeeRateController.cs" />
     <Compile Include="Controllers\FeeRatesController.cs" />
     <Compile Include="api\LoginController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
