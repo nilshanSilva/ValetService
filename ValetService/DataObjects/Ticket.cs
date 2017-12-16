@@ -14,6 +14,7 @@ namespace ValetService.DataObjects
         [Required]
         public string TicketRaiserId { get; set; }
         public string  TicketCloserId { get; set; }
+        public string PickupAssignerId { get; set; }
         public TicketStatus Status { get; set; }
         public DateTimeOffset ClosedAt { get; set; }
         public DateTimeOffset OpenedAt { get; set; }
