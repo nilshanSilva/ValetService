@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201712161200171_ticketAssigner.Designer.cs">
       <DependentUpon>201712161200171_ticketAssigner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712161252387_pickupaccepted.cs" />
+    <Compile Include="Migrations\201712161252387_pickupaccepted.Designer.cs">
+      <DependentUpon>201712161252387_pickupaccepted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161200171_ticketAssigner.resx">
       <DependentUpon>201712161200171_ticketAssigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161252387_pickupaccepted.resx">
+      <DependentUpon>201712161252387_pickupaccepted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
