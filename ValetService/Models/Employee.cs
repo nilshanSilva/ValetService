@@ -47,4 +47,5 @@ namespace ValetService.Models
 
     public enum Gender { Male = 1, Female }
     public enum UserLevel { Parking_Operator = 1, Head_Valet, Receptionist }
+    //
 }
