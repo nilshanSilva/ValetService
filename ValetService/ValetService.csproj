@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201712151851201_TicketOpenedAt.Designer.cs">
       <DependentUpon>201712151851201_TicketOpenedAt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712161200171_ticketAssigner.cs" />
+    <Compile Include="Migrations\201712161200171_ticketAssigner.Designer.cs">
+      <DependentUpon>201712161200171_ticketAssigner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -316,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712151851201_TicketOpenedAt.resx">
       <DependentUpon>201712151851201_TicketOpenedAt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161200171_ticketAssigner.resx">
+      <DependentUpon>201712161200171_ticketAssigner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
