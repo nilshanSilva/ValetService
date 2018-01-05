@@ -1,0 +1,80 @@
+﻿@model List<ValetService.ViewModels.TicketViewModel>
+@{
+    ViewBag.Title = "ViewTicketData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ticket Data</h2>
+<hr />
+
+<table id="tickets" class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TicketId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TicketStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TicketRaiser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TicketCloser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PickupAssigner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Tag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PickupAccepted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().VehicleId)
+            </th>
+            </tr>
+        </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TicketId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TicketStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TicketRaiser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TicketCloser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PickupAssigner)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PickupAccepted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VehicleId)
+                    </td>
+                </tr>
+        }
+    </tbody>
+    </table>
+
+@section scripts
+{
+  <script>
+      $(document).ready(function ()
+      {
+          $("#tickets").DataTable();
+      })
+  </script>    
+}

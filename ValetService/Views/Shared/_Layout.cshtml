@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,22 +20,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Ticket Data", "ViewTicketData", "Organizations")</li>
+                    <li>@Html.ActionLink("Vehicle Data", "ViewVehicleData", "Organizations")</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <div class="push"></div>
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Valet Service Inc</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <div class="push"></div>
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Valet Service Inc</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 </body>
 </html>
@@ -43,5 +44,11 @@
 <style>
     .push {
         height: 100px; /* .push must be the same height as .footer */
+    }
+    .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
     }
 </style>

@@ -1,0 +1,63 @@
+﻿@model List<ValetService.ViewModels.VehicleViewModel>
+@{
+    ViewBag.Title = "ViewVehicleData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehicle Data</h2>
+<hr />
+
+<table id="vehicles" class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().VehicleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().LicencePlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().VehicleStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Zone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TicketId)
+            </th>
+            </tr>
+        </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicencePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketId)
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+
+@section scripts
+{
+    <script>
+      $(document).ready(function ()
+      {
+          $("#vehicles").DataTable();
+      })
+    </script>
+}

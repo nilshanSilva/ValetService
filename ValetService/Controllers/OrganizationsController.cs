@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ValetService.DataObjects;
 using ValetService.Models;
 using ValetService.ViewModels;
 
@@ -177,6 +178,55 @@ namespace ValetService.Controllers
                 }
             }
             return RedirectToAction("Details", new { id = organizationId});
+        }
+
+        public ActionResult ViewTicketData()
+        {
+            List<Ticket> ticketList = db.Tickets.ToList();
+            List<TicketViewModel> ticketVMList = new List<TicketViewModel>();
+
+            foreach(Ticket item in ticketList)
+            {
+                Employee raiser = db.Employees.Find(item.TicketRaiserId);
+                Employee closer = db.Employees.Find(item.TicketCloserId) ?? null;
+                Employee assigner = db.Employees.Find(item.PickupAssignerId);
+
+                TicketViewModel TVM = new TicketViewModel();
+                TVM.TicketId = item.Id;
+                TVM.TicketStatus = item.Status.ToString();
+                TVM.TicketRaiser = raiser.FirstName + " " + raiser.Surname ?? "NULL";
+                if(closer != null)
+                TVM.TicketCloser = closer.FirstName + " " + closer.Surname;
+                if (assigner != null)
+                {
+                    TVM.PickupAssigner = assigner.FirstName + " " + assigner.Surname;
+                }
+                TVM.PickupAccepted = item.PickupAccepted.ToString();
+                TVM.Tag = db.Tags.Find(item.TagId).TagNumber.ToString();
+                TVM.VehicleId = item.VehicleId;
+                ticketVMList.Add(TVM);
+            }
+
+            return View(ticketVMList);
+        }
+        
+        public ActionResult ViewVehicleData()
+        {
+            List<Vehicle> vehicleList = db.Vehicles.ToList();
+            List<VehicleViewModel> vehicleVMList = new List<VehicleViewModel>();
+
+            foreach(Vehicle item in vehicleList)
+            {
+                VehicleViewModel VVM = new VehicleViewModel();
+                VVM.VehicleId = item.Id;
+                VVM.LicencePlate = item.LicencePlateNumber;
+                VVM.VehicleStatus = item.Status.ToString();
+                VVM.Zone = db.Zones.Find(item.ZoneId).Name;
+                VVM.TicketId = item.TicketId;
+                vehicleVMList.Add(VVM);
+            }
+
+            return View(vehicleVMList);
         }
 
         protected override void Dispose(bool disposing)
