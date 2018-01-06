@@ -221,7 +221,10 @@ namespace ValetService.Controllers
                 VVM.VehicleId = item.Id;
                 VVM.LicencePlate = item.LicencePlateNumber;
                 VVM.VehicleStatus = item.Status.ToString();
-                VVM.Zone = db.Zones.Find(item.ZoneId).Name;
+                if (item.ZoneId != null)
+                {
+                    VVM.Zone = db.Zones.Find(item.ZoneId).Name;
+                }
                 VVM.TicketId = item.TicketId;
                 vehicleVMList.Add(VVM);
             }
