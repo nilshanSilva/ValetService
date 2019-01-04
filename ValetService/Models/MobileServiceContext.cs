@@ -24,6 +24,8 @@ namespace ValetService.Models
 
         public MobileServiceContext() : base(connectionStringName)
         {
+            // Automatic Database Migration
+            Database.SetInitializer<MobileServiceContext>(new MigrateDatabaseToLatestVersion<MobileServiceContext, ValetService.Migrations.Configuration>());
         }
 
         public DbSet<Employee> Employees { get; set; }

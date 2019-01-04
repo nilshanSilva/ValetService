@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ValetService.DataObjects;
 using ValetService.Models;
@@ -30,10 +29,12 @@ namespace ValetService.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+       //The id field could be used to query the database for the particular organization
             Organization organization = db.Organizations.Include(t => t.Tags)
                  .Include(z => z.Zones).Include(e => e.Employees)
                  .Include(f => f.FeeRate).FirstOrDefault(d => d.Id == id);
 
+            //A view model is send to the View as agreed in the View's definition
             OrganizationDetailsViewModel organizationVM = new OrganizationDetailsViewModel
             {
                 Organization = organization,
@@ -44,6 +45,8 @@ namespace ValetService.Controllers
             {
                 return HttpNotFound();
             }
+            //The name of the view is not required to be specified
+            //since it matches this method name
             return View(organizationVM);
         }
 
@@ -55,14 +58,15 @@ namespace ValetService.Controllers
         }
 
         // POST: Organizations/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Type,Email,RegistrationNumber,Version,CreatedAt,UpdatedAt,Deleted")] Organization organization)
-        {
+        public ActionResult Create([Bind(
+       Include = "Id,Name,Type,Email,RegistrationNumber,Version,CreatedAt,UpdatedAt,Deleted"
+                                                               )] Organization organization)
+        { //All fields stated under the 'Bind' attribute above will be passed as route values
             if (ModelState.IsValid)
             {
+                //Create new globally unique ID to be the organization identifier
                 organization.Id = Guid.NewGuid().ToString();
                 db.Organizations.Add(organization);
                 db.SaveChanges();
@@ -90,11 +94,11 @@ namespace ValetService.Controllers
         }
 
         // POST: Organizations/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Type,Email,Version,CreatedAt,UpdatedAt,Deleted")] Organization organization)
+        public ActionResult Edit([Bind(
+            Include = "Id,Name,Type,Email,Version,CreatedAt,UpdatedAt,Deleted")
+                                                   ] Organization organization)
         {
             if (ModelState.IsValid)
             {
@@ -145,14 +149,19 @@ namespace ValetService.Controllers
                     zone.Organization = organization;
                     zone.OrganizationId = organizationId;
                     db.Zones.Add(zone);
+                    //zone.Name field is already assigned from the View
+
+                    //Check if a zone with the same name already exists in the organization
                     var zn = db.Zones.Where(o => o.Organization.Id == organization.Id)
                         .Where(z => z.Name == zone.Name).FirstOrDefault();
+
                     if (zn == null)
                     {
                         db.SaveChanges();
                     }
                 }
             }
+            //redirect the user to the organization details page
             return RedirectToAction("Details", new { id = organizationId });
         }
 
@@ -169,6 +178,8 @@ namespace ValetService.Controllers
                     tag.Organization = organization;
                     tag.OrganizationId = organizationId;
                     db.Tags.Add(tag);
+
+       //check whether the current tag has already being registered in this organization
                     var tg = db.Tags.Where(o => o.Organization.Id == organization.Id)
                         .Where(t => t.TagNumber == tag.TagNumber).FirstOrDefault();
                     if (tg == null)
