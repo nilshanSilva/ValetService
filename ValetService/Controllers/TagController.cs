@@ -18,7 +18,7 @@ namespace ValetService.Controllers
         }
 
         // GET tables/Tag
-        public IQueryable<Tag> GetAllTag()
+        public IQueryable<Tag> GetAllTag() //dhddjd
         {
             return Query(); 
         }
